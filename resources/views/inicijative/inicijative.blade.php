@@ -1,9 +1,10 @@
 <html5>
 
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2">
         
-        <meta http-equiv="Content-Type" content="text/html; charset=windows-1250">  
+        <meta charset="UTF-8">
+        
+        
     </head>
     <body>
         
