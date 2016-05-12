@@ -1,71 +1,70 @@
-@extends ('layouts.app')
-@section('content')
+    <head>
         
+        <meta charset="UTF-8">
+        
+        
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    </head>
+
+    <body>
         <form role='form' action='{{url('/inicijativa')}}' method='post' enctype="multipart/form-data">
+
             <div class="form-group">
-                
-                <label for="imeIPrezime"> Ime i prezime: </label>
-                <input type="text" class='form-group' name='imePrezime' placeholder="npr. Pera Perić" required>
+                      
+                <label for="imeIPrezime"> Ime i prezime: </label><br>
+                <input type="text" class='form-group' name='imePrezime' placeholder="npr. Petar Petrović" required></br>
                 
             </div>
             
             <div class="form-group">
                 
-                <label for="nazivPrivrednogSubjekta"> Naziv privrednog subjekta: </label>
-                <input type="text" class='form-group' name='nazivPrivrednogSubjekta' placeholder="npr. UBACI OVDE">
-                <label for="nazivPrivrednogSubjekta"> (obavezno za privredne subjekte) </label>
+                <label for="nazivPrivrednogSubjekta"> Naziv privrednog subjekta: </label><br>
+                <input type="text" class='form-group' name='nazivPrivrednogSubjekta' placeholder="npr: Preduzeće d.o.o."></br>
+                <label for="nazivPrivrednogSubjekta"> <h6>(obavezno za privredne subjekte)</h6> </label>
 
             </div>
             <div class="form-group">
                 
-                <label for="Adresa"> Adresa: </label>
-                <input type="text" class='form-group' name='adresa' placeholder="npr. Bulevar Kralja Aleksandra 1, Beograd" required>
+                <label for="Adresa"> Adresa: </label><br>
+
+                <input type="text" class='form-group' name='adresa' placeholder="npr: Bulevar Kralja Aleksandra 1, Beograd" style="width:300px" required></br>
 
             </div>
             <div class="form-group">
                 <label for="email">Vaš email: </label>
-                <input type="email" class="form-control" name="email" placeholder="email{{'@'}}email.com" required>
-                <label for="email">Molimo vas da unesete ispravne podatke kako bismo mogli da Vas kontaktiramo*</label>
-            </div>
-            
-            <div class="form-group">
-                <label for="nazivProcedure">Naziv procedure: </label>
-                <input type="text" class="form-control" name="nazivProcedure" placeholder="npr. Produženje registracije" required>
+                <input type="email" class="form-control" name="email" placeholder="example@mail.com" style=" width:200px;">
+                <label for="email"> <h6>(Molimo vas da unesete ispravne podatke kako bismo mogli da Vas kontaktiramo)</h6> </label>
             </div>
             
             <div class="form-group">
                 <label for="nazivZakona">Naziv zakona/podzakonskog akta kojim je propis uređen: </label>
-                <input type="text" class="form-control" name="nazivZakona" placeholder="npr. Zakon o saobraćaju" required>
+                <input type="text" style="width: 600px;" class="form-control" name="nazivZakona" placeholder="npr: Zakon o saobraćaju" required>
             </div>
             
             <div class="form-group">
                 <label for="clanoviZakona">Navedi član/članove zakona/podzakonskog akta: </label>
-                <input type="text" class="form-control" name="nazivClana" placeholder="npr. član 2, stav 4." >
+                <input type="text" style="width: 600px;" class="form-control" name="nazivClana" placeholder="npr: član 2, stav 4." >
             </div>
             <!--IZDVOJ U CSS OVO ZA TEXTAREA, I PROSIRI JOS-->
             <div class="form-group">
-                <label for="primedbe">Primedbe/Problemi u primeni: </label>
-                <input type="textarea" class="form-control" name="primedbe" placeholder="Unesite primedbe koje imate na propis" style='
-    overflow-y: scroll;
-    height: 100px;
-    resize: none;' required>
-            </div>
-            
+                <label for="primedbe">Primedbe/problemi u primeni: </label>
+                <textarea style="resize:both; width: 600px;" class="form-control" id="primedbe" placeholder="Unesite primedbe koje imate u vezi propisa"></textarea>
+                </div>
+
             <div class="form-group">
-                <label for="predlog">Predlog izmene: </label>
-                <input type="textarea" class="form-control" name="predlogIzmene" placeholder="Navedite na koji način biste želeli da promenite propis" style='
-    overflow-y: scroll;
-    height: 100px;
-    resize: none;' required>
-            </div>
+                <label for="primedbe">Predlog izmene: </label>
+                <textarea style="resize:both; width: 600px;" class="form-control" name="predlogIzmene" placeholder="Navedite Vaš predlog za rešavanje problema"></textarea>
+                </div>
             
             <div class="form-group">
                 <label for='prilog'> Prilog </label>
-                <input type="file" name="prilog" class="form-control" maxlength=50 allow="text/*">
+                <input type="file" style="width: auto;" name="prilog" class="form-control" data-classButton="btn btn-primary" data-input="false" data-classIcon="icon-plus" buttonText="Izaberi">
             </div>
             
-            <input type="hidden" name="tip" value="propis">
-                {{csrf_field()}}
+            <input type="hidden" name="tip" value="procedura">
+                
             <button type="submit" class="btn btn-default">Pošalji</button>
         </form>
-    @stop
+
+
+</body>
