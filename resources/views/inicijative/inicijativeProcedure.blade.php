@@ -3,7 +3,7 @@
         
         <form role='form' action='{{url('/inicijativa')}}' method='post' enctype="multipart/form-data">
             <div class="form-group">
-                
+                      
                 <label for="imeIPrezime"> Ime i prezime: </label>
                 <input type="text" class='form-group' name='imePrezime' placeholder="npr. Pera Perić" required>
                 
@@ -65,7 +65,7 @@
             </div>
             
             <input type="hidden" name="tip" value="procedura">
-            
+                {{csrf_field()}}
             <button type="submit" class="btn btn-default">Pošalji</button>
         </form>
     @stop

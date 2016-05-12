@@ -65,7 +65,7 @@
             </div>
             
             <input type="hidden" name="tip" value="propis">
-            
+                {{csrf_field()}}
             <button type="submit" class="btn btn-default">Pošalji</button>
         </form>
     @stop

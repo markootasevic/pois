@@ -33,7 +33,7 @@ class InicijativeController extends Controller
 		  // $inicijativaJunk = new InicijativaJunk;
 		  // $inicijativaJunk->create($request-all());
 
-		  $inicijativaJunk = InicijativaJunk::create($request->all);
+		  $inicijativaJunk = InicijativaJunk::create($request->all());
 
 		  return redirect()->back()->with('info','Uspesno ste poslali inicativu');
 	}

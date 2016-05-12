@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class inicijativeJunk extends Model
+class InicijativaJunk extends Model
 {
     protected $table = 'inicijativeJunk';
     protected $fillable = [
