@@ -19,3 +19,8 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
+Route::get('/inicijativa/propis','InicijativeController@getPropisView');
+
+Route::get('/inicijativa/procedura','InicijativeController@getProceduraView');
+
+Route::post('/inicijativa','InicijativeController@postInicijativa');

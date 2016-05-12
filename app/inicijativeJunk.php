@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Inicijativa extends Model
+class InicijativaJunk extends Model
 {
-    protected $table = 'inicijative';
-     protected $fillable = [
+    protected $table = 'inicijativeJunk';
+    protected $fillable = [
         'imePrezime', 
         'nazivPrivrednogSubjekta',
         'adresa',
@@ -19,5 +19,4 @@ class Inicijativa extends Model
         'predlogIzmene',
         'prilog',
     ];
-
 }
