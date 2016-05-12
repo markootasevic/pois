@@ -1,7 +1,7 @@
 @extends ('layouts.app')
 @section('content')
         
-        <form role='form' action='{{route('postInicijativa')}}' method='post' enctype="multipart/form-data">
+        <form role='form' action='{{url('/inicijativa')}}' method='post' enctype="multipart/form-data">
             <div class="form-group">
                 
                 <label for="imeIPrezime"> Ime i prezime: </label>

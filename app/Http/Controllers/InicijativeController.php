@@ -10,7 +10,7 @@ use App\Http\Requests;
 class InicijativeController extends Controller
 {
     public function getPropisView() {
-      return view('');
+      return view('inicijative.inicijativePropisi');
     }
 
     public function getProceduraView() {
