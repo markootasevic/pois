@@ -20,7 +20,7 @@
                 
                 <label for="nazivPrivrednogSubjekta"> Naziv privrednog subjekta: </label><br>
                 <input type="text" class='form-group' name='nazivPrivrednogSubjekta' placeholder="npr: Preduzeće d.o.o."></br>
-                <label for="nazivPrivrednogSubjekta"> <h6>(obavezno za privredne subjekte)</h6> </label>
+                <label for="nazivPrivrednogSubjekta"> <h6>(Obavezno za privredne subjekte.)</h6> </label>
 
             </div>
             <div class="form-group">
@@ -33,7 +33,7 @@
             <div class="form-group">
                 <label for="email">Vaš email: </label>
                 <input type="email" class="form-control" name="email" placeholder="example@mail.com" style=" width:200px;">
-                <label for="email"> <h6>(Molimo vas da unesete ispravne podatke kako bismo mogli da Vas kontaktiramo)</h6> </label>
+                <label for="email"> <h6>(Molimo vas da unesete ispravne podatke kako bismo mogli da Vas kontaktiramo.)</h6> </label>
             </div>
             
             <div class="form-group">
