@@ -10,11 +10,11 @@ use App\Http\Requests;
 class InicijativeController extends Controller
 {
     public function getPropisView() {
-      return view('#');
+      return view('');
     }
 
     public function getProceduraView() {
-     return view('#'); 
+     return view('inicijative.inicijativeProcedure'); 
     }
 
 	public function postInicijativa(Request $request) {

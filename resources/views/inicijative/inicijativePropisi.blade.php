@@ -1,11 +1,5 @@
-<html5>
-
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2">
-        
-        <meta http-equiv="Content-Type" content="text/html; charset=windows-1250">  
-    </head>
-    <body>
+@extends ('layouts.app')
+@section('content')
         
         <form role='form' action='{{route('postInicijativa')}}' method='post' enctype="multipart/form-data">
             <div class="form-group">
@@ -30,7 +24,7 @@
             </div>
             <div class="form-group">
                 <label for="email">Vaš email: </label>
-                <input type="email" class="form-control" name="email" placeholder="email@email.com" required>
+                <input type="email" class="form-control" name="email" placeholder="email{{'@'}}email.com" required>
                 <label for="email">Molimo vas da unesete ispravne podatke kako bismo mogli da Vas kontaktiramo*</label>
             </div>
             
@@ -74,5 +68,4 @@
             
             <button type="submit" class="btn btn-default">Pošalji</button>
         </form>
-    </body>
-</html5>
+    @stop
