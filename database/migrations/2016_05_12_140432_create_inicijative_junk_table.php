@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateInicijativeTable extends Migration
+class CreateInicijativeJunkTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,18 +12,18 @@ class CreateInicijativeTable extends Migration
      */
     public function up()
     {
-        Schema::create('inicijative', function (Blueprint $table) {
+        Schema::create('inicijativeJunk', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('imePrezime');
-            $table->string('nazivPrivrednogSubjekta')->nullable();
-            $table->string('adresa');
-            $table->string('email');
+            $table->string('imePrezime')->nullable();
+            $table->string('nazivPrivrednogSubjekta');
+            $table->string('adresa')->nullable();
+            $table->string('email')->nullable();
             $table->string('nazivProcedure');
             $table->string('nazivZakona');
-            $table->string('nazivClana')->nullable();
+            $table->string('nazivClana');
             $table->string('primedbe');
             $table->string('predlogIzmene');
-            $table->string('prilog')->nullable();
+            $table->string('prilog');
         });
     }
 
@@ -34,8 +34,6 @@ class CreateInicijativeTable extends Migration
      */
     public function down()
     {
-        Schema::table('inicijative', function (Blueprint $table) {
-            Schema::drop('inicijative');
-        });
+        Schema::drop('inicijativeJunk');
     }
 }
