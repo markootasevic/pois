@@ -18,22 +18,23 @@ class InicijativeController extends Controller
     }
 
 	public function postInicijativa(Request $request) {
-		  $this->validate($request, [
-        'imePrezime' => 'required|max:50|alpha',
-        'adresa' => 'required',
-        'email' => 'required',
-        'adresa' => 'required',
-        'adresa' => 'required',
-        'adresa' => 'required',
-        'adresa' => 'required',
-        'adresa' => 'required',
-        'adresa' => 'required',
-    ]);
+		  // $this->validate($request, [
+    //     'imePrezime' => 'required|max:50|alpha',
+    //     'adresa' => 'required',
+    //     'email' => 'required',
+    //     'adresa' => 'required',
+    //     'adresa' => 'required',
+    //     'adresa' => 'required',
+    //     'adresa' => 'required',
+    //     'adresa' => 'required',
+    //     'adresa' => 'required',
+    // ]);
 
 		  // $inicijativaJunk = new InicijativaJunk;
 		  // $inicijativaJunk->create($request-all());
 
 		  $inicijativaJunk = InicijativaJunk::create($request->all());
+          // $inicijativaJunk->tip = $request->input('tip');
 
 		  return redirect()->back()->with('info','Uspesno ste poslali inicativu');
 	}

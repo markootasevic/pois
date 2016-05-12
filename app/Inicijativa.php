@@ -18,6 +18,7 @@ class Inicijativa extends Model
         'primedbe',
         'predlogIzmene',
         'prilog',
+        'tip',
     ];
 
 }

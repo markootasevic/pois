@@ -18,5 +18,6 @@ class InicijativaJunk extends Model
         'primedbe',
         'predlogIzmene',
         'prilog',
+        'tip',
     ];
 }
