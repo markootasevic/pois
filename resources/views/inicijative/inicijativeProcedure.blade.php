@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class = "col-md-6 col-offset-3">
         <form role='form' action='{{url('/inicijativa')}}' method='post' enctype="multipart/form-data">
 
             <div class="form-group">
@@ -62,8 +63,8 @@
             
             <input type="hidden" name="tip" value="procedura">
                 {{csrf_field()}}
-            <button type="submit" class="btn btn-default">Pošalji</button>
+            <button type="submit" class="btn btn-primary">Pošalji</button>
       </form>
-
+    </div>
 
 @stop
