@@ -17,6 +17,10 @@ Route::get('/', function () {
 
 Route::auth();
 
+Route::get('inicijativa/sve', 'InicijativeController@getInicijative');
+
+Route::get('inicijativa/svePotvrdjene', 'InicijativeController@getPotvrdjeneInicijative');
+
 Route::get('/home', 'HomeController@index');
 
 Route::get('/inicijativa/propis','InicijativeController@getPropisView');
