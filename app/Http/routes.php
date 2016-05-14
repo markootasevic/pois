@@ -15,14 +15,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::auth();
+Route::auth(); // url('/register')
 
+//ADMIN
+Route::delete('/obrisiKorisnika/{id}', 'AdminController@deleteKorisnik');
+
+Route::get('/napraviGlavnog', 'AdminController@napraviGlavnog');
+
+// Inicijative: prikaz potvrdjene nepotvrdjene
 Route::get('inicijativa/sve', 'InicijativeController@getInicijative');
 
 Route::get('inicijativa/svePotvrdjene', 'InicijativeController@getPotvrdjeneInicijative');
 
 Route::get('/home', 'HomeController@index');
 
+//Dodavanje inicijativa
 Route::get('/inicijativa/propis','InicijativeController@getPropisView');
 
 Route::get('/inicijativa/procedura','InicijativeController@getProceduraView');
