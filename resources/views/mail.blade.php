@@ -4,6 +4,6 @@
 	<title> Unesena je nova inicijativa </title>
 </head>
 <body>
-  		<h3>Stigla je nova inicijativa, koja je tipa: </h3>
+  		<h3>Stigla je nova inicijativa</h3>
 </body>
 </html>

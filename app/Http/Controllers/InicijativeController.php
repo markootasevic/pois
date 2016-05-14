@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\InicijativaJunk;
 use App\Inicijativa;
 use App\Http\Requests;
+use Mail;
 
 class InicijativeController extends Controller
 {
@@ -32,8 +33,26 @@ class InicijativeController extends Controller
 
 		  // $inicijativaJunk = new InicijativaJunk;
 		  // $inicijativaJunk->create($request-all());
-
+      global $request;
 		  $inicijativaJunk = InicijativaJunk::create($request->all());
+
+       $data = array(
+        'tip' => $request->input('tip'),
+    );
+
+    Mail::send('mail', $data , function ($message) {
+        global $request;
+        $message->from('motasevic994@gmail.com');
+          $subject='Unesena je nova inicijativa';
+          if($request->input('tip') == 'propis')
+            $subject = 'Unesena je nova inicijativa za propis';
+          if ($request->input('tip') == 'procedura') {
+            $subject = 'Unesena je nova inicijativa za proceduru';
+          }
+
+        $message->to('motasevic994@hotmail.com')->subject($subject);
+
+    });
           // $inicijativaJunk->tip = $request->input('tip');
 
 		  return redirect()->back()->with('info','Uspesno ste poslali inicativu');
