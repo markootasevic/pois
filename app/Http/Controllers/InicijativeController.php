@@ -39,4 +39,12 @@ class InicijativeController extends Controller
 		  return redirect()->back()->with('info','Uspesno ste poslali inicativu');
 	}
 
+    public function getInicijative() {
+      
+    }
+
+    public function getPotvrdjeneInicijative() {
+      
+    }
+
 }
