@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::auth(); // url('/register')
+Route::auth(); // url('/register') preko kod admin dodaje nove korsnije (ovo ide u action u formi za dodavanje)
 
 //ADMIN
 Route::delete('/obrisiKorisnika/{id}', 'AdminController@deleteKorisnik');
