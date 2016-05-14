@@ -67,4 +67,17 @@ class InicijativeController extends Controller
       return $inicijative;
     }
 
+    public function transferInicijativa(InicijativaJunk $id) {
+       
+      Inicijativa::create($id->toArray());
+      $id->delete();
+      
+      return redirect()->back();
+    }
+
+    public function deleteInicijativa(InicijativaJunk $id) {
+      $id->delete();
+      return redirect()->back();
+    }
+
 }

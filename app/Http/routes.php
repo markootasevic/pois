@@ -36,3 +36,9 @@ Route::get('/inicijativa/procedura','InicijativeController@getProceduraView');
 
 Route::post('/inicijativa','InicijativeController@postInicijativa');
 
+Route::get('admin', 'AdminController@getAdminStrana');
+
+Route::get ('inicijativa/potvrdi/{id}', 'InicijativeController@transferInicijativa');
+
+Route::delete('inicijativa/delete/{id}', 'InicijativeController@deleteInicijativa');
+
