@@ -15,9 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::auth(); // url('/register') preko kod admin dodaje nove korsnije (ovo ide u action u formi za dodavanje)
+
 
 //ADMIN
+Route::auth(); // url('/register') preko kod admin dodaje nove korsnije (ovo ide u action u formi za dodavanje)
+
+Route::get('admin', 'AdminController@getAdminStrana');
+
 Route::delete('/obrisiKorisnika/{id}', 'AdminController@deleteKorisnik');
 
 Route::get('/napraviGlavnog', 'AdminController@napraviGlavnog');
@@ -36,9 +40,7 @@ Route::get('/inicijativa/procedura','InicijativeController@getProceduraView');
 
 Route::post('/inicijativa','InicijativeController@postInicijativa');
 
-Route::get('admin', 'AdminController@getAdminStrana');
-
-Route::get ('inicijativa/potvrdi/{id}', 'InicijativeController@transferInicijativa');
+Route::post ('inicijativa/potvrdi/{id}', 'InicijativeController@transferInicijativa');
 
 Route::delete('inicijativa/delete/{id}', 'InicijativeController@deleteInicijativa');
 
