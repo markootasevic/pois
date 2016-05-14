@@ -9,9 +9,13 @@ use App\Http\Requests;
 class AdminController extends Controller
 {
 
-	// public function __construct() {
-	// 	$this->middleware('auth');
-	// }
+	public function __construct() {
+		$this->middleware(['auth', 'adminTop']);
+	}
+
+	public function getAdminStrana() {
+		return view('#'); 
+	}
 
     public function deleteKorisnik(User $id) {
     	$id->delete();
