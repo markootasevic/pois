@@ -44,3 +44,6 @@ Route::post ('inicijativa/potvrdi/{id}', 'InicijativeController@transferInicijat
 
 Route::delete('inicijativa/delete/{id}', 'InicijativeController@deleteInicijativa');
 
+//slanje email-a
+Route::post('sendemail', 'MailController@sendemail');
+
