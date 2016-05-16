@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
     <div class = "col-md-6 col-offset-3">
         <form role='form' action='{{url('/inicijativa')}}' method='post' enctype="multipart/form-data">
 
@@ -26,7 +27,7 @@
             </div>
             <div class="form-group">
                 <label for="email">Vaš email: </label>
-                <input type="email" class="form-control" name="email" placeholder="example{{'@'}}mail.com" style=" ">
+                <input type="email" class="form-control" name="email" placeholder="npr: petar.petrovic{{'@'}}gmail.com" style=" ">
                 <label for="email"> <h6>(Molimo vas da unesete ispravne podatke kako bismo mogli da Vas kontaktiramo.)</h6> </label>
             </div>
             
@@ -47,23 +48,22 @@
             <!--IZDVOJ U CSS OVO ZA TEXTAREA, I PROSIRI JOS-->
             <div class="form-group">
                 <label for="primedbe">Primedbe/problemi u primeni: </label>
-                <textarea style="resize:vertical; " class="form-control" id="primedbe" placeholder="Unesite primedbe koje imate na proceduru"></textarea>
+                <textarea style="resize:vertical; min-height: 50px" class="form-control" id="primedbe" placeholder="Unesite primedbe koje imate na proceduru"></textarea>
                 </div>
 
             <div class="form-group">
                 <label for="primedbe">Predlog izmene: </label>
-                <textarea style="resize:vertical; " class="form-control" name="predlogIzmene" placeholder="Navedite Vaš predlog za rešavanje problema"></textarea>
+                <textarea style="resize:vertical; min-height: 50px" class="form-control" name="predlogIzmene" placeholder="Navedite Vaš predlog za rešavanje problema"></textarea>
                 </div>
             
             <div class="form-group">
                 <label for='prilog'> Prilog </label>
-                <input type="file" style="width: auto;" name="prilog" class="form-control" data-classButton="btn btn-primary" data-input="false" data-classIcon="icon-plus" buttonText="Izaberi">
+                <input type="file" style="width: auto; height:inherit;" multiple="multiple" " name="prilog" class="form-control" data-classButton="btn btn-primary" data-input="false" data-classIcon="icon-plus" buttonText="Izaberi">
             </div>
             
             <input type="hidden" name="tip" value="procedura">
                 {{csrf_field()}}
             <button type="submit" class="btn btn-primary">Pošalji</button><br>
-
             
       </form></br>
     </div>
