@@ -47,3 +47,8 @@ Route::delete('inicijativa/delete/{id}', 'InicijativeController@deleteInicijativ
 //slanje email-a
 Route::post('sendemail', 'MailController@sendemail');
 
+//administrativni prikaz strana
+
+Route::get('adminView', function(){
+	return view('/adminPrikaz/administrativniPrikazInicijativa');
+});

@@ -51,7 +51,7 @@
             
             <div class="form-group">
                 <label for='prilog'> Prilog </label>
-                <input type="file" style="width: auto; height:inherit;" " name="prilog" multiple="multiple" class="form-control" data-classButton="btn btn-primary" data-input="false" data-classIcon="icon-plus" buttonText="Izaberi">
+                <input type="file" style="width: auto; height:inherit;"  name="prilog" multiple="multiple" class="form-control" data-classButton="btn btn-primary" data-input="false" data-classIcon="icon-plus" buttonText="Izaberi">
             </div>
             
 
