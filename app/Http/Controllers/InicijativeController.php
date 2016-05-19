@@ -7,7 +7,7 @@ use App\InicijativaJunk;
 use App\Inicijativa;
 use App\Http\Requests;
 use Mail;
-
+use View;
 class InicijativeController extends Controller
 {
     public function getPropisView() {
@@ -68,8 +68,9 @@ class InicijativeController extends Controller
         $a = $array['tip'];
         $inicijative= InicijativaJunk::where('tip','=', $a)->get();
     }
+      $data = $inicijative->toArray();
+      return  view('mail', compact('data'));
       
-      return $inicijative;
     }
     
     // mora da se dorade uslovi ako se filtrira za jos nesto osim za tip inicijative

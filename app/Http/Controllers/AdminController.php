@@ -14,7 +14,7 @@ class AdminController extends Controller
 	}
 
 	public function getAdminStrana() {
-		return view('#'); 
+		return view('adminPrikaz.administrativniPrikazInicijativa'); 
 	}
 
     public function deleteKorisnik(User $id) {
