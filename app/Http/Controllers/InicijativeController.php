@@ -86,7 +86,7 @@ class InicijativeController extends Controller
         $inicijative= InicijativaJunk::where('tip','=', $a)->get();
     }
       $data = $inicijative->toArray();
-      return  view('mail', compact('data'));
+      return  view('adminPrikaz.administrativniPrikazInicijativa', compact('data'));
       
     }
     
