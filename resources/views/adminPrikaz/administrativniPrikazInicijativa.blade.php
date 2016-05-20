@@ -11,16 +11,17 @@
 
 <body>
 
-<p>Click on the links inside the tabbed menu:</p>
-
-<ul class="tab">
-  <li><a href="#" class="tablinks" onclick="openTab(event, 'junkInicijative')">Ne obradjene incijative</a></li>
-  <li><a href="#" class="tablinks" onclick="openTab(event, 'prihvaceneIncijative')">Prihvaćene inicijative</a></li>
-  <li><a href="#" class="tablinks" onclick="openTab(event, 'add/remove_nalog')">Dodaj/Obriši nalog</a></li>
-</ul>
-
+<div class="col-md-3"></div>
+<div class="container">
+	<ul class="nav nav-tabs">
+	  <li><a href="#" class="tablinks" onclick="openTab(event, 'junkInicijative')">Neobradjene incijative</a></li>
+	  <li><a href="#" class="tablinks" onclick="openTab(event, 'prihvaceneIncijative')">Prihvaćene inicijative</a></li>
+	  <li><a href="#" class="tablinks" onclick="openTab(event, 'add/remove_nalog')">Dodaj/Obriši nalog</a></li>
+	</ul>
+</div>
+<div class="col-md-3"></div>
 <div id="junkInicijative" class="tabcontent">
-  <h3>Ne obradjene incijative</h3>
+  <h3>Neobradjene incijative</h3>
   <br>
   @foreach($data as $a)
 
@@ -33,6 +34,7 @@
 </div>
 
 <div id="prihvaceneIncijative" class="tabcontent">
+
   <h3>Prihvaćene inicijative</h3>
   <br>
   <?php
