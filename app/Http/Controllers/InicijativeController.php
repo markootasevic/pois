@@ -41,6 +41,7 @@ class InicijativeController extends Controller
 
       if ($request->hasFile('prilog')) {
         $file = $request->file('prilog');
+        dd($file)->all();
         $extension = $file->getClientOriginalExtension();
         Storage::disk('local')->put($file->getClientOriginalName().'.'.$extension,  File::get($file));
         $updateInicijativeJunk = InicijativaJunk::find($inicijativaJunk->id);
