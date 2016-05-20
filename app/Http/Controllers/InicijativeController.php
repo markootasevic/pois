@@ -76,11 +76,12 @@ class InicijativeController extends Controller
 	}
     // mora da se dorade uslovi ako se filtrira za jos nesto osim za tip inicijative
     public function getInicijative(Request $request) {
-
+      global $request;
     if(empty($request->all())) {
         $inicijative =  InicijativaJunk::all();
     }
     else {
+      global $request;
         $array = $request->all();
         $a = $array['tip'];
         $inicijative= InicijativaJunk::where('tip','=', $a)->get();
