@@ -8,6 +8,8 @@ use App\Inicijativa;
 use App\Http\Requests;
 use Mail;
 use View;
+use Illuminate\Support\Facades\Storage;
+use File;
 class InicijativeController extends Controller
 {
     public function getPropisView() {
@@ -36,6 +38,20 @@ class InicijativeController extends Controller
       global $request;
 		  $inicijativaJunk = InicijativaJunk::create($request->all());
 
+
+      if ($request->hasFile('prilog')) {
+        $file = $request->file('prilog');
+        $extension = $file->getClientOriginalExtension();
+        Storage::disk('local')->put($file->getClientOriginalName().'.'.$extension,  File::get($file));
+        $updateInicijativeJunk = InicijativaJunk::find($inicijativaJunk->id);
+
+      $updateInicijativeJunk->prilog = $file->getClientOriginalName();
+
+      $updateInicijativeJunk->save();
+      }
+     
+
+// za slanje e-mail-a
        $data = array(
         'tip' => $request->input('tip'),
     );
@@ -50,7 +66,7 @@ class InicijativeController extends Controller
             $subject = 'Unesena je nova inicijativa za proceduru';
           }
 
-        $message->to('motasevic994@hotmail.com')->subject($subject);
+        $message->to('zeljkonikic1994@gmail.com')->subject($subject);
 
     });
           // $inicijativaJunk->tip = $request->input('tip');

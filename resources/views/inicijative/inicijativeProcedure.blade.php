@@ -1,5 +1,9 @@
 @extends('layouts.app')
+@section('style')
 
+<link href="{!! asset('css/adminStyle.css') !!}" media="all" rel="stylesheet" type="text/css" />
+
+@stop
 @section('content')
 
     <div class = "col-md-6 col-offset-3">

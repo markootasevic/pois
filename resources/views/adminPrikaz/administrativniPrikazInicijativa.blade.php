@@ -1,5 +1,12 @@
 @extends('layouts.app')
 
+
+@section('style')
+
+<link href="{!! asset('css/adminStyle.css') !!}" media="all" rel="stylesheet" type="text/css" />
+
+@stop
+
 @section('content')
 <style>
 body {font-family: "Lato", sans-serif;}
