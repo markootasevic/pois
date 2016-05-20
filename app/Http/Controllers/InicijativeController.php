@@ -118,4 +118,8 @@ class InicijativeController extends Controller
       return redirect()->back();
     }
 
+    public function getJednuInicijativu(InicijativaJunk $id) {
+      return  view('adminPrikaz.administrativniPrikazInicijativa', compact('id'));
+    }
+
 }

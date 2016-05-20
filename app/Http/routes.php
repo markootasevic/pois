@@ -31,6 +31,8 @@ Route::get('inicijativa/sve', 'InicijativeController@getInicijative');
 
 Route::get('inicijativa/svePotvrdjene', 'InicijativeController@getPotvrdjeneInicijative');
 
+Route::get('inicijativa/{id}', 'InicijativeController@getJednuInicijativu');
+
 Route::get('/home', 'HomeController@index');
 
 //Dodavanje inicijativa
