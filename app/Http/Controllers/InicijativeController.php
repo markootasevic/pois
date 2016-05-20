@@ -41,6 +41,7 @@ class InicijativeController extends Controller
 
       if ($request->hasFile('prilog')) {
         $file = $request->file('prilog');
+        dd($file)->all();
         $extension = $file->getClientOriginalExtension();
         Storage::disk('local')->put($file->getClientOriginalName().'.'.$extension,  File::get($file));
         $updateInicijativeJunk = InicijativaJunk::find($inicijativaJunk->id);
@@ -75,11 +76,12 @@ class InicijativeController extends Controller
 	}
     // mora da se dorade uslovi ako se filtrira za jos nesto osim za tip inicijative
     public function getInicijative(Request $request) {
-
+      global $request;
     if(empty($request->all())) {
         $inicijative =  InicijativaJunk::all();
     }
     else {
+      global $request;
         $array = $request->all();
         $a = $array['tip'];
         $inicijative= InicijativaJunk::where('tip','=', $a)->get();
@@ -114,6 +116,10 @@ class InicijativeController extends Controller
     public function deleteInicijativa(InicijativaJunk $id) {
       $id->delete();
       return redirect()->back();
+    }
+
+    public function getJednuInicijativu(InicijativaJunk $id) {
+      return  view('adminPrikaz.administrativniPrikazInicijativa', compact('id'));
     }
 
 }
