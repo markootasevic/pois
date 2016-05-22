@@ -118,9 +118,9 @@ class InicijativeController extends Controller
       return redirect()->back();
     }
 
-    public function getJednuInicijativu(InicijativaJunk $id) {
+    public function getJednuInicijativu(InicijativaJunk $inicijativaId) {
       //return  view('adminPrikaz.administrativniPrikazInicijativa', compact('id'));
-      dd('POTREBNO SREDITI METODU TAKO DA SALJE OBJEKAT INICIJATIVA U POP UP PROZOR', $id);
+      dd('POTREBNO SREDITI METODU TAKO DA SALJE OBJEKAT INICIJATIVA U POP UP PROZOR', $inicijativaId);
     }
 
 }
