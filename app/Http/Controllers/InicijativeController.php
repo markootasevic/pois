@@ -119,7 +119,7 @@ class InicijativeController extends Controller
     }
 
     public function getJednuInicijativu(InicijativaJunk $inicijativaId) {
-      //return  view('adminPrikaz.administrativniPrikazInicijativa', compact('id'));
+      //return  view('adminPrikaz.administrativniPrikazInicijativa', compact('inicijativaId'));
       dd('POTREBNO SREDITI METODU TAKO DA SALJE OBJEKAT INICIJATIVA U POP UP PROZOR', $inicijativaId);
     }
 
