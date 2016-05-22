@@ -38,7 +38,7 @@ Route::get('/home', 'HomeController@index');
 //Dodavanje inicijativa
 Route::get('/inicijativa/propis','InicijativeController@getPropisView');
 
-Route::get('inicijativa/{id}', 'InicijativeController@getJednuInicijativu');
+Route::get('inicijativa/jedna/{id}', 'InicijativeController@getJednuInicijativu');
 
 Route::get('/inicijativa/procedura','InicijativeController@getProceduraView');
 
