@@ -22,15 +22,36 @@
 <div class="col-md-3"></div>
 <div id="junkInicijative" class="tabcontent">
   <h3>Neobradjene incijative</h3>
-  <br>
-  @foreach($data as $a)
 
-  	@foreach($a as $b)
-  		{{$b}}
-  		<br>
-  	@endforeach
+  <table style="width:100%">
+    <tr>
+      <th>Naziv inicijative</th>
+      <th>Zakon</th> 
+      <th>PrivredniSubjekat/Ime podnosioca</th>
+      <th>Tip inicijative</th>
+      <th>Vreme podnosenja</th>
+    </tr>
 
+  @foreach($inicijative as $inicijativa)
+
+    
+      <tr onclick="window.document.location='{{route('inicijativaPopUp', ['inicijativaId' => $inicijativa->id])}}'">
+        <td>{{$inicijativa->nazivProcedure}}</td>
+        <td>{{$inicijativa->nazivZakona}}</td> 
+        <td>
+          @if($inicijativa->nazivPrivrednogSubjekta)
+            {{$inicijativa->nazivPrivrednogSubjekta}}
+          @else
+            {{$inicijativa->imePrezime}}
+          @endif
+        </td>
+        <td>{{$inicijativa->tip}}</td>
+        <td>{{$inicijativa->created_at->diffForHumans()}}</td>
+      </tr>
+    
   @endforeach
+
+  </table>
 </div>
 
 <div id="prihvaceneIncijative" class="tabcontent">

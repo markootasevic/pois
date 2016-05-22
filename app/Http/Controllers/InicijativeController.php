@@ -78,16 +78,16 @@ class InicijativeController extends Controller
     public function getInicijative(Request $request) {
       global $request;
     if(empty($request->all())) {
-        $inicijative =  InicijativaJunk::all();
+        $inicijative =  InicijativaJunk::orderBy('created_at', 'desc')->get();
     }
     else {
       global $request;
         $array = $request->all();
         $a = $array['tip'];
-        $inicijative= InicijativaJunk::where('tip','=', $a)->get();
+        $inicijative= InicijativaJunk::where('tip','=', $a)->orderBy('created_at', 'desc')->get();
     }
-      $data = $inicijative->toArray();
-      return  view('adminPrikaz.administrativniPrikazInicijativa', compact('data'));
+      
+      return  view('adminPrikaz.administrativniPrikazInicijativa', compact('inicijative'));
       
     }
     
@@ -119,7 +119,8 @@ class InicijativeController extends Controller
     }
 
     public function getJednuInicijativu(InicijativaJunk $id) {
-      return  view('adminPrikaz.administrativniPrikazInicijativa', compact('id'));
+      //return  view('adminPrikaz.administrativniPrikazInicijativa', compact('id'));
+      dd('POTREBNO SREDITI METODU TAKO DA SALJE OBJEKAT INICIJATIVA U POP UP PROZOR', $id);
     }
 
 }

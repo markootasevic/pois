@@ -38,7 +38,10 @@ Route::get('/home', 'HomeController@index');
 //Dodavanje inicijativa
 Route::get('/inicijativa/propis','InicijativeController@getPropisView');
 
-Route::get('inicijativa/jedna/{id}', 'InicijativeController@getJednuInicijativu');
+Route::get('inicijativa/jedna/{inicijativaId}', [
+	'uses' => 'InicijativeController@getJednuInicijativu',
+	'as' => 'inicijativaPopUp'
+]);
 
 Route::get('/inicijativa/procedura','InicijativeController@getProceduraView');
 
@@ -53,6 +56,9 @@ Route::post('sendemail', 'MailController@sendemail');
 
 //administrativni prikaz strana
 
-Route::get('adminView', function(){
-	return view('/adminPrikaz/administrativniPrikazInicijativa');
-});
+// RUTA ISPOD JE KONFLIKTNA SA RUTOM InicijativeController@getInicijative KOJA VRACA ISTI VIEW
+// PROBLEM JE STO OVA RUTA NE SALJE POTREBNE PODATKE U VIEW 
+// TAKO DA PREDLAZEM DA SE ZA VRACANJE ADMIN VIEWA KORISTI VEC GOTOVA RUTA InicijativeController@getInicijative
+// Route::get('adminView', function(){
+// 	return view('/adminPrikaz/administrativniPrikazInicijativa');
+// });
