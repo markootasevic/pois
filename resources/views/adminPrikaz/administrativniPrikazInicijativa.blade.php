@@ -13,7 +13,7 @@
 
 <div class="col-md-3"></div>
 <div class="container">
-	<ul class="nav nav-tabs">
+	<ul class="nav nav-tabs ">
 	  <li><a href="#" class="tablinks" onclick="openTab(event, 'junkInicijative')">Neobradjene incijative</a></li>
 	  <li><a href="#" class="tablinks" onclick="openTab(event, 'prihvaceneIncijative')">Prihvaćene inicijative</a></li>
 	  <li><a href="#" class="tablinks" onclick="openTab(event, 'add/remove_nalog')">Dodaj/Obriši nalog</a></li>
@@ -23,19 +23,32 @@
 <div id="junkInicijative" class="tabcontent">
   <h3>Neobradjene incijative</h3>
 
+  <form action='{{url('/postCheckbox')}}' method="post">
+    {{csrf_field()}}
   <table style="width:100%">
     <tr>
+      @if(Auth::user()->admin == 1 )
+        <th></th>
+      @endif
       <th>Naziv inicijative</th>
       <th>Zakon</th> 
       <th>PrivredniSubjekat/Ime podnosioca</th>
       <th>Tip inicijative</th>
       <th>Vreme podnosenja</th>
+      <th></th>
     </tr>
 
   @foreach($inicijative as $inicijativa)
 
-    
-      <tr onclick="window.document.location='{{route('inicijativaPopUp', ['inicijativaId' => $inicijativa->id])}}'">
+    <!-- window.document.location='{{route('inicijativaPopUp', ['inicijativaId' => $inicijativa->id])}}' -->
+      <tr>
+        @if(Auth::user()->admin == 1)
+          @if($inicijativa->user_id == null)
+            <td><input type="checkbox" name="check_list[]" value={{$inicijativa->id}}></td>
+          @else 
+            <td><input type="checkbox" name="check_list[]" value={{$inicijativa->id}} data-toggle="tooltip" title="Inicijativa je vec dodeljena" disabled ></td>
+          @endif
+        @endif
         <td>{{$inicijativa->nazivProcedure}}</td>
         <td>{{$inicijativa->nazivZakona}}</td> 
         <td>
@@ -47,11 +60,26 @@
         </td>
         <td>{{$inicijativa->tip}}</td>
         <td>{{$inicijativa->created_at->diffForHumans()}}</td>
+        <td><a href="{{route('inicijativaPopUp', ['inicijativaId' => $inicijativa->id])}}"><input type = "button" class="btn btn-primary" value = "otvori"> </a></td>
       </tr>
     
   @endforeach
 
   </table>
+
+  @if(Auth::user()->admin == 1)
+    <select name = "zaposleni">
+      @foreach($users as $user)
+    <option value= {{$user->id}}>{{$user->name}}</option>
+      @endforeach
+    
+    </select>
+
+    <input type = "submit" class="btn btn-primary" value = "Dodeli inicijative zaposlenom">
+  @endif
+
+</form>
+
 </div>
 
 <div id="prihvaceneIncijative" class="tabcontent">
@@ -86,6 +114,11 @@ function openTab(evt, cityName) {
 }
 </script>
 
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); 
+});
+</script>
 
 
 

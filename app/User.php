@@ -1,7 +1,8 @@
 <?php
 
 namespace App;
-
+use App\InicijativaJunk;
+use App\Inicijativa;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -23,4 +24,12 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function inicijative() {
+        return $this->hasMany('App\Inicijativa');
+    }
+
+    public function inicijativeJunk() {
+        return $this->hasMany('App\InicijativaJunk');
+    }
 }

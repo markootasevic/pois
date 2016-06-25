@@ -47,7 +47,11 @@ Route::get('/inicijativa/procedura','InicijativeController@getProceduraView');
 
 Route::post('/inicijativa','InicijativeController@postInicijativa');
 
-Route::post ('inicijativa/potvrdi/{id}', 'InicijativeController@transferInicijativa');
+// RUTE ZA PRIHVATANJE ODBIJANJE I BRISANJE POJEDINACNE INICIJATIVE
+//	PROSLEDITI RUTE DUGMICIMA
+Route::post('inicijativa/potvrdi/{id}', 'InicijativeController@transferInicijativaPrihvacena');
+
+Route::post('inicijativa/odbij/{id}', 'InicijativeController@transferInicijativaOdbijena');
 
 Route::delete('inicijativa/delete/{id}', 'InicijativeController@deleteInicijativa');
 
@@ -55,6 +59,17 @@ Route::delete('inicijativa/delete/{id}', 'InicijativeController@deleteInicijativ
 Route::post('sendemail', 'MailController@sendemail');
 
 //administrativni prikaz strana
+
+// ovo je ruta za dodeljivanje inicijative nekom zaposlenom
+Route::get('/javnoDostupne', 'InicijativeController@getJavnoDostupne');
+
+Route::get ('file', 'InicijativeController@getFile');
+
+//ovo je ruta za javni prikaz svih inicijativa koje su obradjenje
+
+
+
+
 
 // RUTA ISPOD JE KONFLIKTNA SA RUTOM InicijativeController@getInicijative KOJA VRACA ISTI VIEW
 // PROBLEM JE STO OVA RUTA NE SALJE POTREBNE PODATKE U VIEW 

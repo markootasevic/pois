@@ -19,7 +19,7 @@ class AdminTopMiddleware
 
         if($user == null)
             abort(404, 'No way hoze');
-        if($user->admin == 1 ) 
+        if($user->admin == 1) 
             return $next($request);
         else 
             abort(404, 'No way hoze');

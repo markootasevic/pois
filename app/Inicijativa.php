@@ -1,6 +1,7 @@
 <?php
 
 namespace App;
+use App\User;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -19,6 +20,11 @@ class Inicijativa extends Model
         'predlogIzmene',
         'prilog',
         'tip',
+        'prihvacena',
+        'status'
     ];
 
+    public function user() {
+        return $this->belongsTo('App\User');
+    }
 }
