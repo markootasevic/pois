@@ -49,12 +49,12 @@ class InicijativeController extends Controller
         $file = $request->file('prilog');
         
         $extension = $file->getClientOriginalExtension();
-        Storage::disk('local')->put($file->getClientOriginalName().'.'.$extension,  File::get($file));
+        Storage::disk('local')->put($file->getClientOriginalName(),  File::get($file));
         $updateInicijativeJunk = InicijativaJunk::find($inicijativaJunk->id);
 
       $updateInicijativeJunk->prilog = $file->getClientOriginalName();
       //test faza
-      $updateInicijativeJunk->primedbe = $file->getClientMimeType();
+      $updateInicijativeJunk->mime = $file->getClientMimeType();
 
       $updateInicijativeJunk->save();
       }
@@ -169,31 +169,33 @@ class InicijativeController extends Controller
       dd('POTREBNO SREDITI METODU TAKO DA SALJE OBJEKAT INICIJATIVA U POP UP PROZOR', $inicijativaId);
     }
 
-    public function getJavnoDostupne () {
+    public function getJavnoDostupne ($imeFajla) {
 
         $potvrdjeneInicijative = Inicijativa::all();
         return  view('javniPrikaz', compact('potvrdjeneInicijative'));
     }
 
-    public function getFile () {
-      $contents = Storage::get('Air Serbia studija sluaja - Case Study Show 2016.pdf');
-      dd($contents);
-      $file_path = storage_path() ."/app/". "BP skripta.pdf";
-      dd($file_path);
-      if (file_exists($file_path))
-    {
-        // Send Download
-        return Response::download($file_path, "BP skripta.pdf", [
-            'Content-Length: '. filesize($file_path)
-        ]);
-    }
-    else
-    {
-        // Error
-        exit('Requested file does not exist on our server!');
-    }
+    public function getFileInicijativaJunk (InicijativaJunk $id) {
+      $imeFajla = $id->prilog;
+      $ekstenzija = $id->mime;
+      $file = storage_path() ."\\app\\". $imeFajla;
+
+       $headers = array(
+              'Content-Type: '.$ekstenzija,
+            );
+      return response()->download($file, $imeFajla, $headers);
     }
 
+public function getFileInicijativa (Inicijativa $id) {
+      $imeFajla = $id->prilog;
+      $ekstenzija = $id->mime;
+      $file = storage_path() ."\\app\\". $imeFajla;
+
+       $headers = array(
+              'Content-Type: '.$ekstenzija,
+            );
+      return response()->download($file, $imeFajla, $headers);
+    }
     
 }
 

@@ -17,6 +17,8 @@
 			<input type="submit" />
 		</form>
 
+			<br>
+			 <a href="/download/75" class="btn btn-large pull-right"> Download pdf </a>
 
 
 </body>
