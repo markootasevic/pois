@@ -123,7 +123,7 @@ class InicijativeController extends Controller
 
     
     // mora da se dorade uslovi ako se filtrira za jos nesto osim za tip inicijative
-    public function getPotvrdjeneInicijative() {
+    public function getPotvrdjeneInicijative(Request $request) {
       if(empty($request->all())) {
         $inicijative =  Inicijativa::all();
     }
@@ -171,6 +171,8 @@ class InicijativeController extends Controller
 
     public function getJavnoDostupne () {
 
+        $potvrdjeneInicijative = Inicijativa::all();
+        return  view('javniPrikaz', compact('potvrdjeneInicijative'));
     }
 
     public function getFile () {
