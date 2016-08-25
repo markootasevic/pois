@@ -18,6 +18,7 @@
 		</form>
 
 			<br>
+			   {{-- ovo 75 je id te inicijative --}}
 			 <a href="/download/75" class="btn btn-large pull-right"> Download pdf </a>
 
 

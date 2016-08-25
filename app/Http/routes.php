@@ -67,7 +67,7 @@ Route::post('inicijativa/dodeli', 'InicijativeController@dodeliInicijative');
 
 //ovo je ruta za javni prikaz svih inicijativa koje su obradjenje
 Route::get('/javnoDostupne', 'InicijativeController@getJavnoDostupne');
-//routa za download.ima primer hrefa za to u primerCheckbox view-u,ovaj id je id inicijative i to treba da se prosledi..moraju 2 rute,1 za neobradje i jedna za obradjene inicijative
+//routa za download.ima primer hrefa za to u probaCheckbox view-u,ovaj id je id inicijative i to treba da se prosledi..moraju 2 rute,1 za neobradje i jedna za obradjene inicijative
 Route::get ('download/{id}', 'InicijativeController@getFileInicijativa');
 Route::get ('downloadJunk/{id}', 'InicijativeController@getFileInicijativaJunk');
 
